@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}
+Home
+{% endblock %}
+
+
+{% block content %}
+
+<br><br>
+
+    <div class="container text-center mt-5">
+
+        <h1>Welcome to the MiddleMan App</h1>
+        </br>
+        <a href="{% url 'offer_list' %}" class="btn btn-secondary btn-lg mt-5">View Offers</a>
+        <a href="{% url 'cv_list' %}" class="btn btn-secondary btn-lg mt-5">Manage CVs</a>
+        <a href="{% url 'cv_add_and_predict' %}" class="btn btn-secondary btn-lg mt-5">Predict CVs Category</a>
+        <a href="{% url 'offer_add_and_predict' %}" class="btn btn-secondary btn-lg mt-5">Predict Offers Category</a>
+
+    </div>
+
+{% endblock %}

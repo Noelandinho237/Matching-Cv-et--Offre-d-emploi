@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Add CV
+{% endblock %}
+
+{% block content %}
+
+<br></br>  
+
+    <div class="container mt-5">
+        <h1 class="text-center">Add CV</h1>
+        <br></br>  
+
+        <form method="post" enctype="multipart/form-data" class="text-center">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-success btn-lg" > Submit</button>
+        </form>
+        <a href="{% url 'cv_list' %}" class="btn btn-secondary mt-3" >Back to All CVs List</a>
+        <a href="{% url 'home' %}" class="btn btn-secondary mt-3" > Home </a>
+
+    </div>
+
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Offer Delete
+{% endblock %}
+
+{% block content %}
+
+    <div class="container">
+
+        <div class="centered">
+            <h1>Are you sure you want to delete "{{ offer.title_offer }}"?</h1>
+
+            <form method="post">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger">Yes, delete</button>
+                <a href="{% url 'offer_list' %}" class="btn btn-secondary">Cancel</a>
+            </form>
+
+        </div>
+
+{% endblock %}

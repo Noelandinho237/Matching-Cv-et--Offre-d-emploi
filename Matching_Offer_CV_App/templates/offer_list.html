@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Offer Liste
+{% endblock %}
+
+{% block content %}
+
+<br></br>
+
+<body>
+    <div class="container mt-5">
+
+        <div class="centered">
+            <h1 class="text-center">Offers</h1>
+            <br></br>
+            <a href="{% url 'offer_add_and_predict' %}" class="btn btn-secondary mb-3">Add New Offer</a>
+            <br></br>
+            
+            <table class="table table-bordered table-striped">
+
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Title</th>
+                        <th>Description</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {% for offer in offers %}
+                        <tr>
+                            <td>{{ offer.title_offer }}</td>
+                            <td><a href="{% url 'offer_view' offer.pk %}" target="_blank" class="btn btn-primary ">View File</a></td>
+
+                            <td>
+                                <a href="{% url 'offer_edit' offer.pk %}" class="btn btn-warning btn-sm">Edit</a>
+
+                                <form action="{% url 'offer_delete' offer.pk %}" method="post" style="display:inline;">
+                                    {% csrf_token %}
+                                    <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                </form>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+
+            </table> 
+            <a href="{% url 'home' %}" class="btn btn-success">Home</a>
+        </div>
+        
+    </div>
+{% endblock %}
+

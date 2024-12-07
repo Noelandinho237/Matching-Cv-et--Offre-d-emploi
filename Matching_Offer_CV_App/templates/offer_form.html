@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}
+Edit Form
+{% endblock %}
+
+{% block content %}
+
+<br><br>
+
+    <div class="container">
+
+        <div class="text-center">
+
+            <h1 class="text-center">{{ action }} Offers</h1>
+
+            <form method="post" enctype="multipart/form-data" class="container text-center mt-5">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <br></br>
+                <button type="submit" class="btn btn-primary btn-lg">{{ action }}</button>
+                <a href="{% url 'offer_list' %}" class="btn btn-secondary btn-lg">Cancel</a>
+            </form>
+
+        </div>
+
+{% endblock %}

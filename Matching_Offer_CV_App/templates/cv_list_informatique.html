@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block title %}
+Cv List for Informatique
+{% endblock %}
+
+{% block content %}
+
+<br><br>
+<br><br>
+
+
+<ol>
+	{% for cv in cvs %}
+		{% if cv.category == "informatique" %}
+
+			<div class="card text-bg-dark mb-3" style="width: 20rem;" >
+				<img src="https://cdn.pixabay.com/photo/2014/05/18/18/34/icon-347234__340.png" 
+				width="100" 
+				height="100" 
+				class="card-img-center"  
+				>
+
+				<div class="card-body">
+		    		<h5 class="card-title">Name :  {{cv.name}}</h5>
+		    		<a href="{% url 'cv_view' cv.pk  %}" class="btn btn-primary">Read more...</a><br><br>
+		  		</div>
+                
+			</div>
+
+		{% elif cv.category != "informatique"  %}
+		<div></div>
+
+		{% else %}
+
+			<div class="text-center">
+				<h2> No Cv Corresponding to Informatique... </h2>
+			</div>
+
+		{% endif %}
+   {% endfor %}
+</ol>
+
+{% endblock %}
+

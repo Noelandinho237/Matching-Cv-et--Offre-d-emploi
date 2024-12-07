@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Cv Delete
+{% endblock %}
+
+{% block content %}
+
+
+<body>
+    <div class="container mt-5">
+
+        <h1 class="text-center">Confirm Deletion</h1>
+        <p class="text-center">Are you sure you want to delete CV with ID {{ cv.id_cv }}?</p>
+
+        <form method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger">Delete</button>
+            <a href="{% url 'cv_list' %}" class="btn btn-secondary">Cancel</a>
+        </form>
+
+    </div>
+
+{% endblock %} 

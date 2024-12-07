@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Listings</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .header, .footer {
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+        .header a, .footer a {
+            color: white;
+            text-decoration: none;
+            padding: 0 15px;
+        }
+        .search-bar {
+            margin: 20px 0;
+            text-align: center;
+        }
+        .search-bar input {
+            padding: 10px;
+            width: 300px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .job-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        .job-card {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 20px;
+            width: 300px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .job-card h3 {
+            margin: 0;
+        }
+        .job-card p {
+            margin: 10px 0;
+        }
+        .footer {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+
+
+<body>
+    <header class="header">
+        <div class="container">
+            <h1>MiddleMan</h1>
+            <nav>
+                <a href="/">Home</a>
+                <a href="/jobs/">Offers</a>
+                <a href="/post-job/">Post Offer</a>
+                <a href="/contact/">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="search-bar">
+            <input type="text" placeholder="Search for jobs...">
+        </div>
+
+        <div class="job-list">
+            {% for job in jobs %}
+            <div class="job-card">
+                <h3>{{ job.title_offer }}</h3>
+                <p><strong>Company:</strong> {{ job.title_offer }}</p>
+                <p><strong>Location:</strong> {{ job.id_offer }}</p>
+                <p><strong>Description:</strong> {{ job.description_offer|slice:":100" }}...</p>
+            </div>
+            {% empty %}
+            <p>No jobs available at the moment.</p>
+            {% endfor %}
+        </div>
+    </main>
+
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 MiddleMan | <a href="/privacy-policy/">Privacy Policy</a></p>
+        </div>
+    </footer>
+
+</body>
+</html>
