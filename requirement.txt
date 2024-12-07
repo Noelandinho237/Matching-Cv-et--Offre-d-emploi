@@ -1,0 +1,6 @@
+asgiref==3.8.1 
+django==4.2.14 
+sqlparse==0.5.1 
+typing-extensions==4.12.2 
+tzdata==2024.1
+PyPDF2==4.1.1
